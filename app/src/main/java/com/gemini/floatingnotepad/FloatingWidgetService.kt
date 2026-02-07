@@ -31,7 +31,7 @@ package com.gemini.floatingnotepad
             super.onCreate()
             loadNotes()
     
-            floatingView = LayoutInflater.from(this).inflate(R.layout.floating_widget, null)
+            floatingView = LayoutInflater.from(this).inflate(R.layout.layout_floating_widget, null)
     
             val params = WindowManager.LayoutParams(
                 WindowManager.LayoutParams.WRAP_CONTENT,
