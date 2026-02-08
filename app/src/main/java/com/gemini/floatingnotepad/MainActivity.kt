@@ -37,16 +37,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // 2. Stop Service Logic
+     // 2. Stop Service Logic - Changed from btnSettings to btnStop
         btnStop.setOnClickListener {
             stopService(Intent(this, FloatingWidgetService::class.java))
             Toast.makeText(this, "Service Stopped", Toast.LENGTH_SHORT).show()
         }
 
-        // 3. Settings Logic (Placeholder for now)
+        // 3. Settings Logic - This now correctly opens your new Settings screen
         btnSettings.setOnClickListener {
-            Toast.makeText(this, "Settings coming in Phase 2!", Toast.LENGTH_SHORT).show()
-            // We will create the SettingsActivity next!
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
         }
     }
 }
