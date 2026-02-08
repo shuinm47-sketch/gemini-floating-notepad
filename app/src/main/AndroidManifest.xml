@@ -9,7 +9,9 @@
             android:allowBackup="true"
             android:label="Gemini Floating Note"
             android:supportsRtl="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:icon="@drawable/ic_launcher"
+            android:roundIcon="@drawable/ic_launcher">
             
             <activity
                 android:name=".MainActivity"
