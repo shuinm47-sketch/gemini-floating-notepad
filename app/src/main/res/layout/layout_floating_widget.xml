@@ -1,65 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_container"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@android:color/holo_orange_light"
-    android:padding="4dp">
-
-    <RelativeLayout
-        android:id="@+id/header_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#44000000"
-        android:padding="4dp">
-
-        <Button
-            android:id="@+id/prev_note"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:text="&lt;"
-            android:layout_alignParentStart="true"/>
-
-        <TextView
-            android:id="@+id/note_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Note 1"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:layout_centerInParent="true"
-            android:padding="4dp"/>
-
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/root_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:orientation="horizontal">
+            android:id="@+id/view_note_interface"
+            android:layout_width="250dp"
+            android:layout_height="220dp"
+            android:orientation="vertical"
+            android:background="#FFF3E0"
+            android:elevation="4dp">
+    
+            <RelativeLayout
+                android:id="@+id/header_layout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#FFB74D"
+                android:paddingHorizontal="4dp">
+    
+                <Button
+                    android:id="@+id/btn_prev"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:text="&lt;"
+                    android:backgroundTint="#FF9800"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"/>
+    
+                <TextView
+                    android:id="@+id/tv_note_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Note 1"
+                    android:textStyle="bold"
+                    android:textColor="#3E2723"
+                    android:layout_centerInParent="true"/>
+    
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true">
+                    
+                    <Button
+                        android:id="@+id/btn_next"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:text="&gt;"
+                        android:backgroundTint="#FF9800"/>
+    
+                    <Button
+                        android:id="@+id/btn_menu_open"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:text="⚙"
+                        android:textSize="16sp"
+                        android:backgroundTint="#5D4037"
+                        android:layout_marginStart="4dp"/>
+                </LinearLayout>
+            </RelativeLayout>
+    
+            <EditText
+                android:id="@+id/et_note_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="top|start"
+                android:padding="8dp"
+                android:textSize="14sp"
+                android:hint="Write something..."
+                android:textColor="#000000"/>
+        </LinearLayout>
+    
+        <LinearLayout
+            android:id="@+id/view_menu_overlay"
+            android:layout_width="250dp"
+            android:layout_height="220dp"
+            android:orientation="vertical"
+            android:background="#EFEBE9"
+            android:visibility="gone"
+            android:clickable="true"
+            android:elevation="10dp"
+            android:padding="8dp">
+    
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Options"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
+                <Button
+                    android:id="@+id/btn_menu_close"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:text="✕"
+                    android:background="@android:color/transparent"
+                    android:textColor="#000000"
+                    android:layout_alignParentEnd="true"/>
+            </RelativeLayout>
+    
+            <Button
+                android:id="@+id/btn_action_rename"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Rename Note"/>
             
             <Button
-                android:id="@+id/next_note"
-                android:layout_width="40dp"
+                android:id="@+id/btn_action_copy"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="&gt;"/>
-
+                android:text="Copy to Clipboard"/>
+    
             <Button
-                android:id="@+id/btn_widget_settings"
-                android:layout_width="40dp"
+                android:id="@+id/btn_action_list"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="⚙" 
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"/>
+                android:text="View All Notes (List)"/>
+            
+            <Button
+                android:id="@+id/btn_action_delete"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Delete (Move to Trash)"
+                android:backgroundTint="#D32F2F"
+                android:layout_marginTop="4dp"/>
         </LinearLayout>
-    </RelativeLayout>
-
-    <EditText
-        android:id="@+id/note_edit_text"
-        android:layout_width="200dp"
-        android:layout_height="150dp"
-        android:gravity="top"
-        android:background="@android:color/transparent"
-        android:padding="8dp"
-        android:hint="Type here..."
-        android:textColor="@android:color/black"/>
-</LinearLayout>
+    </FrameLayout>
+    
